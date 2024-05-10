@@ -1,0 +1,368 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&family=Inter:wght@100..900&family=Jost:ital,wght@0,100..900;1,100..900&family=Madimi+One&family=Oi&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Yanone+Kaffeesatz:wght@200..700&display=swap');
+// variables
+$white: #FFFFFF;
+$grey: #838383;
+$dark-grey: #1D1D1F;
+$offset: 190px;
+:root {
+    --offset: 190px;
+}
+// 
+h1 {
+    @include fontz(600, 96px, 116.18px);
+}
+h2 {
+    @include fontz(500, 32px, 41.6px);
+}
+h3 {
+    @include fontz(400, 24px, 33.6px);
+}
+html {
+    scroll-behavior: smooth;
+}
+body {
+    font-family: "Inter", sans-serif;
+    height: 100%;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+.logo {
+    color: $white;
+}
+//
+/*header*/
+.header {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 39px 0;
+    &__wrapper {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__burger {
+        display: none;
+    }
+
+    &__menu {
+        display: flex;
+        align-items: center;
+        color: $white;
+    }
+
+    &__btn {
+        margin: 0 0 0 35px;
+        color: $white;
+        @include link;
+        transition: color 0.3s ease;
+        &:hover {
+            color: $grey;
+        }
+    }
+}
+// main
+.wrapper {
+    min-height: 100%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+.main {
+    flex: 1 1 auto;
+}
+/*intro*/
+.intro {
+    height: 100vh;
+    background-image: url(../img/wrapper.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    padding-top: 120px+150px;
+    margin: 0 0 var(--offset) 0;
+
+    &__block {
+        max-width: 936px;
+    }
+
+    &__title {
+        color: $white;
+        margin: 0 0 30px 0;
+    }
+
+    &__text {
+        @include text;
+        color: $white;
+        margin: 0 0 50px 0;
+        max-width: 468px;
+    }
+
+    &__button {
+        color: $dark-grey;
+        background-color: $white;
+        @include btn;
+        &:hover {
+            color: $white;
+            background-color: $dark-grey;
+        }
+    }
+}
+/*about*/
+.about {
+    margin: 0 0 var(--offset) 0;
+    &__wrapper {
+        @include grid;
+    }
+
+    &__num {
+        @include num;
+        color: $dark-grey;
+    }
+
+    &__description {
+        @include text;
+        color: $grey;
+    }
+
+    &__video {
+        aspect-ratio: 16 / 9;
+        grid-column: span 2;
+        position: relative;
+        margin: var(--offset) 0 0 0;
+        & video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+    }
+}
+.about-v {
+
+    &__block {
+        margin: 0 0 60px 0;
+        &:last-child {
+            margin: 0;
+        }
+    }
+}
+.about-t {
+    color: $dark-grey;
+    &__title {
+        @include text-big;
+    }
+
+    &__text {
+        @include descriptor;
+        margin: 0 0 24px 0;
+        &:last-child {
+            margin: 0;
+        }
+    }
+}
+/*portfolio*/
+.portfolio {
+    margin: 0 0 var(--offset) 0;
+    &__wrapper {
+        grid-template-rows: repeat(2, 1fr);
+    }
+
+    &__row {
+        @include grid;
+        margin: 0 0 120px 0;
+        align-items: center;
+        &:last-child {
+            .portfolio {
+                &__block {
+                    order: 2;
+                }
+                &__img {
+                    order: 1;
+                }
+            }
+        }
+    }
+
+    &__block {
+        order: 1;
+    }
+
+    &__title {
+        color: $grey;
+        margin: 0 0 20px 0;
+    }
+
+    &__text {
+        @include text;
+        color: $dark-grey;
+        margin: 0 0 60px 0;
+    }
+
+    &__btn {
+        @include btn;
+        color: $white;
+        background-color: $dark-grey;
+        &:hover {
+            color: $dark-grey;
+            background-color: $white;
+        }
+    }
+
+    &__img {
+        max-width: 570px;
+        height: 400px;
+        position: relative;
+        order: 2;
+        & img {
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+}
+/*quote*/
+.quote {
+    margin: 0 0 var(--offset) 0;
+
+    &__title {
+        @include text;
+        color: $grey;
+        margin: 0 0 50px 0;
+    }
+
+    &__text {
+        @include quote;
+        color: $dark-grey;
+        margin: 0 0 30px 0;
+    }
+}
+.quoute {
+
+    &__author {
+        @include descriptor;
+        color: $dark-grey;
+        & span {
+            color: $grey;
+        }
+    }
+}
+/*services*/
+.services {
+    margin: 0 0 var(--offset) 0;
+
+    &__image {
+        position: relative;
+        width: 100%;
+        max-height: 900px;
+        margin: 0 0 var(--offset) 0;
+        & img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            object-fit: cover;
+        }
+    }
+
+    &__list {
+        display: grid;
+        grid-template-rows: repeat(4, 1fr);
+    }
+
+    &__row {
+        @include grid;
+        border-top: 1px solid rgba($color: $dark-grey, $alpha: 0.4);
+        align-items: center;
+        padding: 40px 0;
+    }
+
+    &__title {
+        color: $dark-grey;
+        align-self: start;
+
+    }
+
+    &__text {
+        @include text;
+        color: $grey;
+    }
+}
+/*footer*/
+.footer {
+    background-color: $dark-grey;
+    padding: 90px 0 126px 0;
+    &__wrapper {
+        @include grid;
+    }
+
+    &__logo {
+        display: block;
+        margin: 0 0 48px 0;
+    }
+
+    &__adress {
+        @include text;
+        color: $grey;
+        margin: 0 0 30px 0;
+    }
+
+    &__links {
+        display: flex;
+    }
+    &__svg {
+        transition: fill 0.3s ease;
+    }
+    &__icon {
+        margin: 0 20px 0 0;
+        &:hover {
+            .footer__svg {
+                fill: $grey;
+            }
+        }
+    }
+
+    &__title {
+        color: $white;
+        margin: 0 0 30px 0;
+    }
+
+    &__form {
+        position: relative;
+    }
+
+    &__input {
+        @include input-text;
+        color: $grey;
+        background: transparent;
+        height: 44px;
+        width: 100%;
+        border-bottom: 1px solid $grey;
+        text-transform: uppercase;
+    }
+
+    &__btn {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        right: 0px;
+        width: 24px;
+        height: 24px;
+        background: transparent;
+        & img {
+            display: block;
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+        }
+    }
+}

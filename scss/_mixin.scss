@@ -1,0 +1,54 @@
+// functions
+@function rem($n){ //px to rem
+    $value: 1;
+    @if $n > 0 {
+        $value: ($n / ($n * 0 + 1)) / 16 + rem;
+        
+    }
+    @return $value;
+}
+
+// mixin
+@mixin fontz($fw, $fsz, $lh) {
+    font-weight: $fw;
+    font-size: rem($fsz);
+    line-height: rem($lh);
+}
+@mixin text{ //Текст
+    @include fontz(400, 16px, 24px);
+}
+@mixin link{ //Ссылка
+    @include fontz(400, 16px, 19.36px);
+}
+@mixin btn-text{ //Текст для кнопки
+    @include fontz(600, 17px, 20.57px);
+}
+@mixin input-text{ //текст в инпутах
+    @include fontz(700, 13px, 15.73px);
+    letter-spacing: 8%;
+}
+@mixin num{ //Цифры
+    @include fontz(300, 64px, 89.6px)
+}
+@mixin text-big{ //text big
+    @include fontz(700, 44px, 61.6px)
+}
+@mixin quote{ //цитата
+    @include fontz(500, 36px, 54px)
+}
+@mixin descriptor{ //дескриптор
+    @include fontz(400, 16px, 24px)
+}
+// 
+@mixin grid{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 60px;
+}
+@mixin btn {
+    width: 180px;
+    text-align: center;
+    padding: 20px 0 19px;
+    @include btn-text;
+    transition: all 0.3s ease;
+}

@@ -1,0 +1,200 @@
+// 
+@media(max-width:767px){
+    :root {
+        --offset: 90px;
+    }
+    h1 {
+        @include fontz(600, 46px, 66.18px);
+    }
+    h2 {
+        @include fontz(500, 30px, 38.6px);
+    }
+    h3 {
+        @include fontz(400, 22px, 30.6px);
+    }
+    body {
+        &.lock {
+            overflow: hidden;
+        }
+    }
+}
+// header
+@media(max-width:767px){
+    .header {
+        padding: 19px 0;
+        &__nav {
+            position: fixed;
+            top: -100%;
+            left: 0;
+            background-color: $white;
+            width: 100%;
+            height: 100vh;
+            transition: all 0.3s ease;
+            z-index: 2;
+            &.active {
+                top: 0;
+            }
+        }
+        
+        &__menu {
+            flex-direction: column;
+        }
+        & li {
+            margin: 0 0 10vh 0;
+        }
+        &__btn {
+            color: $dark-grey;
+            margin: 0;
+            text-transform: uppercase;
+        }
+        &__burger {
+            display: block;
+            width: 30px;
+            height: 20px;
+            position: fixed;
+            top: 29px;
+            right: 15px;
+            z-index: 3;
+            & span {
+                position: absolute;
+                left: 0;
+                top: 9px;
+                width: 100%;
+                height: 2px;
+                background-color: $grey;
+                transition: all 0.3s ease;
+            }
+            &::before, 
+            &::after {
+                content: "";
+                position: absolute;
+                left: 0;
+                width: 100%;
+                height: 2px;
+                background-color: $grey;
+                transition: all 0.3s ease;
+            }
+            &::before {
+                top: 0;
+            }
+            &::after {
+                bottom: 0;
+            }
+            &.active {
+                &::before {
+                    transform: rotate(45deg);
+                    top: 9px;
+                    left: 0;
+                }
+                &::after {
+                    transform: rotate(-45deg);
+                    bottom: 9px;
+                    right: 0;
+                }
+                & span {
+                    transform: scale(0);
+                }
+            }
+        }
+    }
+}
+// about
+@media(max-width: 767px) {
+    .about {
+        &__wrapper {
+            display: flex;
+            flex-direction: column;
+        }
+        
+    }
+    .about-v {
+
+        &__block {
+            margin: 0 0 30px 0;
+            &:last-child {
+                margin: 0;
+            }
+        }
+    }
+    .about-t {
+        margin: 30px 0 0 0;
+        &__title {
+            @include fontz(700, 32px, 48.6px)
+        }
+    
+        &__text {
+            @include descriptor;
+            margin: 0 0 24px 0;
+            &:last-child {
+                margin: 0;
+            }
+        }
+    }
+}
+// portfolio
+@media(max-width:767px){
+    .portfolio {
+        &__block {
+            order: none;
+        }
+        &__img {
+            flex: 1 1 570px;
+            margin: 30px 0 0 0;
+        }
+        &__wrapper {
+            display: flex;
+            flex-direction: column;
+            
+        }
+        &__row {
+            margin: 0;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+        }
+        &__text {
+            margin: 0 0 30px 0;
+        }
+    }
+}
+// quote
+@media(max-width:767px){
+    .quote {
+        &__title {
+            margin: 0 0 20px 0;
+        }
+        &__text {
+            @include fontz(500, 20px, 36px)
+        }
+    }
+}
+// services
+@media(max-width:767px){
+    .services {
+        &__list {
+            display: flex;
+            flex-direction: column;
+        }
+        &__row {
+            display: flex;
+            flex-direction: column;
+        }
+        &__title {
+            margin: 0 0 15px 0;
+        }
+    }
+}
+// footer
+@media(max-width:767px){
+    .footer {
+        padding: 60px 0 76px 0;
+        &__wrapper {
+            display: flex;
+            flex-direction: column;
+        }
+        &__column {
+            margin: 0 0 30px 0;
+        }
+    }
+}
